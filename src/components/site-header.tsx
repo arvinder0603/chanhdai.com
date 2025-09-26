@@ -47,8 +47,6 @@ export function SiteHeader() {
 
         <div className="flex-1" />
 
-        <DesktopNav items={MAIN_NAV} />
-
         <div className="flex items-center gap-2">
           <CommandMenu posts={posts} />
           <NavItemGitHub />

@@ -53,7 +53,7 @@ type CommandLinkItem = {
 
 const MENU_LINKS: CommandLinkItem[] = [
   {
-    title: "Daifolio",
+    title: "Daiflskfnlkrolio",
     href: "/",
     icon: ChanhDaiMark,
   },
@@ -189,40 +189,6 @@ export function CommandMenu({ posts }: { posts: Post[] }) {
 
   return (
     <>
-      <Button
-        variant="secondary"
-        className={cn(
-          "h-8 gap-1.5 rounded-full bg-zinc-50 px-2.5 text-muted-foreground select-none hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-900",
-          "not-dark:border dark:inset-shadow-[1px_1px_1px,0px_0px_2px] dark:inset-shadow-white/15"
-        )}
-        onClick={() => setOpen(true)}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 16 16"
-          aria-hidden
-        >
-          <path
-            d="M10.278 11.514a5.824 5.824 0 1 1 1.235-1.235l3.209 3.208A.875.875 0 0 1 14.111 15a.875.875 0 0 1-.624-.278l-3.209-3.208Zm.623-4.69a4.077 4.077 0 1 1-8.154 0 4.077 4.077 0 0 1 8.154 0Z"
-            fill="currentColor"
-            fillRule="evenodd"
-            clipRule="evenodd"
-          />
-        </svg>
-
-        <span className="font-sans text-sm/4 font-medium sm:hidden">
-          Search
-        </span>
-
-        <CommandMenuKbd className="hidden tracking-wider sm:in-[.os-macos_&]:flex">
-          ⌘K
-        </CommandMenuKbd>
-        <CommandMenuKbd className="hidden sm:not-[.os-macos_&]:flex">
-          Ctrl K
-        </CommandMenuKbd>
-      </Button>
-
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
 

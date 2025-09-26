@@ -14,23 +14,10 @@ export const META_THEME_COLORS = {
   dark: "#09090b",
 };
 
-export const MAIN_NAV: NavItem[] = [
-  {
-    title: "Daifolio",
-    href: "/",
-  },
-  {
-    title: "Blog",
-    href: "/blog",
-  },
-  {
-    title: "Components",
-    href: "/components",
-  },
-];
+export const MAIN_NAV: NavItem[] = [];
 
-export const SOURCE_CODE_GITHUB_REPO = "ncdai/chanhdai.com";
-export const SOURCE_CODE_GITHUB_URL = "https://github.com/ncdai/chanhdai.com";
+export const SOURCE_CODE_GITHUB_REPO = "arvinder/chanhdai.com";
+export const SOURCE_CODE_GITHUB_URL = "https://github.com/arvinder0603";
 
 export const UTM_PARAMS = {
   utm_source: "chanhdai.com",
