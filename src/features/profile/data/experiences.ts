@@ -85,25 +85,12 @@ design-to-development fidelity.
         id: "36c4c6fb-02d0-48c0-8947-fda6e9a24af7",
         title: "Army Public School — Ambala Cantt, India",
         employmentPeriod: {
-          start: "08.2019",
+          start: "08.2009",
           end: "09.2021",
         },
         icon: "education",
-        description: `- Recognized as the most outstanding student of the district.
-- Achieved numerous awards at city and national levels:
-  - Consolation Prize — National Young Informatics Contest 2015
-  - Consolation Prize — National Young Informatics Contest 2014
-  - 1st Prize — Can Tho City Young Informatics Contest 2014
-- Achieved the title of Outstanding Student from Grade 6-9.
-- Developed websites using the open-source NukeViet CMS.`,
-        skills: [
-          "Pascal",
-          "NukeViet",
-          "HTML",
-          "CSS",
-          "JavaScript",
-          "Self-learning",
-        ],
+        description: "",
+        skills: [],
       },
     ],
   },
