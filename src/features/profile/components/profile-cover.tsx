@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 export function ProfileCover() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [logs, setLogs] = useState([]);
+  const [logs, setLogs] = useState<{ type: string; text: string }[]>([]);
   const [currentLog, setCurrentLog] = useState('');
   const [showCursor, setShowCursor] = useState(true);
-  const coverRef = useRef(null);
+  const coverRef = useRef<HTMLDivElement>(null);
 
   const logEntries = [
     { type: 'info', text: 'SELECT * FROM developers WHERE status = "available"' },
@@ -54,7 +54,7 @@ export function ProfileCover() {
   }, []);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!coverRef.current) return;
       const rect = coverRef.current.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width - 0.5;
