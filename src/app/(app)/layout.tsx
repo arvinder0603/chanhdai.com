@@ -1,3 +1,4 @@
+
 import dynamic from "next/dynamic";
 
 import { SiteFooter } from "@/components/site-footer";

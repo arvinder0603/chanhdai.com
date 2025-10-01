@@ -63,8 +63,7 @@ design-to-development fidelity.
   Object-Oriented Programming, Web Development, Machine Learning, Artificial Intelligence, Big Data Analytics.
 - Actively participating in coding competitions and hackathons to enhance problem-solving skills and practical knowledge.
 - Member of the university's coding club, contributing to organizing workshops and coding events for peers.
-- Developed several projects including a web-based student management system and a machine learning model for
-  predictive analytics as part of coursework.`,
+`,
         skills: [
           "C++",
           "Java",

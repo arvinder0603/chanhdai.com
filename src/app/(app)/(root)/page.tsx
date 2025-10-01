@@ -1,5 +1,9 @@
+"use client";
+
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 
 import { About } from "@/features/profile/components/about";
 import { Awards } from "@/features/profile/components/awards";
@@ -15,8 +19,83 @@ import { SocialLinks } from "@/features/profile/components/social-links";
 import { TeckStack } from "@/features/profile/components/teck-stack";
 import { USER } from "@/features/profile/data/user";
 import { cn } from "@/lib/utils";
+import NameWritingAnimation from "@/components/ui/NameWritingAnimation";
+
+
+
+// Shutter Animation Component
+function ShutterReveal({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ clipPath: "inset(100% 0 0 0)" }}
+      animate={{ clipPath: "inset(0% 0 0 0)" }}
+      transition={{ 
+        duration: 1.2, 
+        ease: [0.25, 0.46, 0.45, 0.94],
+        delay: 0.2
+      }}
+      className="w-full"
+    >
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function Page() {
+  const [showContent, setShowContent] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  // Ensure we're on the client side before starting animations
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleNameComplete = () => {
+    setShowContent(true);
+  };
+
+  // Show content immediately on server to prevent hydration issues
+  if (!isClient) {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
+        <div className="mx-auto md:max-w-3xl">
+          <div className="space-y-0">
+
+            <ProfileCover />
+            <ProfileHeader />
+            <Separator />
+            <Overview />
+            <Separator />
+            <SocialLinks />
+            <Separator />
+            <About />
+            <Separator />
+            <TeckStack />
+            <Separator />
+            <Experiences />
+            <Separator />
+            <Projects />
+            <Separator />
+            <Brand />
+            <Separator />
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <script
@@ -25,36 +104,161 @@ export default function Page() {
           __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
         }}
       />
+    
+      <AnimatePresence mode="wait">
+        {!showContent ? (
+          <NameWritingAnimation key="name-writing" onComplete={handleNameComplete} />
+        ) : (
+          <motion.div 
+            key="main-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mx-auto md:max-w-3xl"
+          >
+            <ShutterReveal>
+              <div className="space-y-0">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                >
+                  <ProfileCover />
+                </motion.div>
 
-      <div className="mx-auto md:max-w-3xl">
-        <ProfileCover />
-        <ProfileHeader />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
+                >
+                  <ProfileHeader />
+                </motion.div>
 
-        <Overview />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
 
-        <SocialLinks />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 1.4, ease: "easeOut" }}
+                >
+                  <Overview />
+                </motion.div>
 
-        <About />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
 
-        <TeckStack />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
+                >
+                  <SocialLinks />
+                </motion.div>
 
-        {/* <Blog />
-        <Separator /> */}
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 2.0, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
 
-        <Experiences />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 2.2, ease: "easeOut" }}
+                >
+                  <About />
+                </motion.div>
 
-        <Projects />
-        <Separator />
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 2.4, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
 
-        <Brand />
-        <Separator />
-      </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 2.6, ease: "easeOut" }}
+                >
+                  <TeckStack />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 2.8, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 3.0, ease: "easeOut" }}
+                >
+                  <Experiences />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 3.2, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 3.4, ease: "easeOut" }}
+                >
+                  <Projects />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 3.6, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 3.8, ease: "easeOut" }}
+                >
+                  <Brand />
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scaleX: 0 }}
+                  animate={{ opacity: 1, scaleX: 1 }}
+                  transition={{ duration: 0.8, delay: 4.0, ease: "easeOut" }}
+                >
+                  <Separator />
+                </motion.div>
+              </div>
+            </ShutterReveal>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

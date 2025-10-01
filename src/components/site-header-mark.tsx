@@ -1,4 +1,4 @@
-"use client";
+
 
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { usePathname } from "next/navigation";
