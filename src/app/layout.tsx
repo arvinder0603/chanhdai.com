@@ -77,9 +77,12 @@ export const metadata: Metadata = {
     images: [SITE_INFO.ogImage],
   },
   icons: {
-    icon: [],
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" }, // optional if you add it
+    ],
     apple: {
-      url: "",
+      url: "/apple-touch-icon.png", // add this file when ready
       type: "image/png",
       sizes: "180x180",
     },
