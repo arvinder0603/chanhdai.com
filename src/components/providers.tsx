@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { AppProgressProvider } from "@bprogress/next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -13,6 +14,11 @@ const Toaster = dynamic(
 );
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  // Preload heavy UI modules to eliminate first-use lag
+  useEffect(() => {
+    import("@/components/ui/NameWritingAnimation");
+  }, []);
+
   return (
     <JotaiProvider>
       <ThemeProvider
