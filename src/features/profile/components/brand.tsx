@@ -10,7 +10,7 @@ const CERTIFICATIONS = [
   {
     id: 0,
     title: "Software Engineering by The Hong Kong University of Science and Technology",
-    issuer: "Intellectual Property Office of Viet Nam",
+    issuer: "The Hong Kong University of Science and Technology",
     date: "2025-08-18",
     image: "/certifications/aws.png",
     link: "https://coursera.org/share/042573af1d42de5e9723edc0456d95b1",
