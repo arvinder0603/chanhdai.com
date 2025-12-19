@@ -30,7 +30,7 @@ Frontend Developer with hands-on experience building high-performance React appl
  improvements in load times and bundle size through modern optimization techniques like code splitting and tree shaking.
  Developed reusable components and SDKs, and implemented analytics tracking using GA4 to support product insights.
   `,
-  avatar: "https://media.licdn.com/dms/image/v2/D5603AQG1tXh6tSIETg/profile-displayphoto-crop_800_800/B56ZkwEloWJ8AI-/0/1757448137928?e=1762387200&v=beta&t=Yw4s3mJq1QVbIBxEv16KDFBPh6nMYaBNmt-kwh_w16M",
+  avatar: "https://media.licdn.com/dms/image/v2/D5603AQG1tXh6tSIETg/profile-displayphoto-crop_800_800/B56ZkwEloWJ8AI-/0/1757448137928?e=1767830400&v=beta&t=nKQET8-oPjvfFO7mjKFajQaM3U3f5DHOQBGL7n5ebEo",
   ogImage:
     "",
   namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
