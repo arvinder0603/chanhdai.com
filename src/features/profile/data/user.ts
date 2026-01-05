@@ -31,6 +31,7 @@ Frontend Developer with hands-on experience building high-performance React appl
  Developed reusable components and SDKs, and implemented analytics tracking using GA4 to support product insights.
   `,
   avatar: "https://media.licdn.com/dms/image/v2/D5603AQG1tXh6tSIETg/profile-displayphoto-crop_800_800/B56ZkwEloWJ8AI-/0/1757448137928?e=1767830400&v=beta&t=nKQET8-oPjvfFO7mjKFajQaM3U3f5DHOQBGL7n5ebEo",
+  
   ogImage:
     "",
   namePronunciationUrl: "https://assets.chanhdai.com/audio/chanhdai.mp3",
